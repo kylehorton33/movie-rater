@@ -22,19 +22,23 @@ function App() {
   }, [] )
 
   const movieClicked = movie => {
-    console.log(movie.title);
+    //console.log(movie.title);
+    setSelectedMovie(movie);
+  }
+
+  const loadMovie = movie => {
     setSelectedMovie(movie);
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Movie Rater</h1>
+        <h1>MOVIE RATING APP</h1>
         
       </header>
       <div className="layout">
           <MovieList movies={movies} movieClicked={movieClicked}/>
-          <MovieDetails movie={selectedMovie} />
+          <MovieDetails movie={selectedMovie} updateMovie={loadMovie}/>
       </div>
     </div>
   );
