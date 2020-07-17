@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { API } from '../api-service'
 
 function MovieForm(props) {
 
@@ -8,6 +9,9 @@ function MovieForm(props) {
 
   const updateClicked = () => {
     console.log('update here')
+    API.updateMovie(props.movie.id, {title, description})
+    .then( resp => console.log(resp) )
+    .catch( err => console.log(err) )
   }
 
   return (
