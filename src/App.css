@@ -2,7 +2,7 @@
   padding: 20px;
   min-height: 100vh;
   background-color: #282c34;
-  color: white; 
+  color: #E2DADB; 
 
 }
 
@@ -37,15 +37,25 @@
 }
 
 .gray {
-  color : gray;
+  color : #548687;
 }
 
 .rate-container {
   margin-top: 20px;
-  border-top : 2px solid purple
+  border-top : 2px solid #E2DADB;
 }
 
 .rate-container .fa-star {
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.movie-item {
+  display : grid;
+  grid-template-columns: 1fr auto auto;
+}
+
+.movie-item svg {
+  font-size: 1.2rem;
+  margin: 16px 5px;
 }

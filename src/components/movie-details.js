@@ -44,7 +44,7 @@ function MovieDetails(props){
   
 
   return (
-    <div>
+    <React.Fragment>
       { mov ? (
         <div>
           <h1>{mov && props.movie.title }</h1>
@@ -71,7 +71,7 @@ function MovieDetails(props){
         
       ) : null }
       
-    </div>
+    </React.Fragment>
   )
 }
 
