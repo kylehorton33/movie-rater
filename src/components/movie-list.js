@@ -11,6 +11,7 @@ function MovieList(props){
   
   const editClicked = movie => evt => {
     props.editClicked(movie)
+    console.log(`You are now editing: ${movie.title}`)
   }
 
   return (
