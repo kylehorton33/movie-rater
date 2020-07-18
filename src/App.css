@@ -32,12 +32,14 @@
   grid-gap: 20px;
 }
 
-.gold {
+.filled-average {
   color : purple;
+  font-size : 1.5rem;
 }
 
-.gray {
+.filled-user-rating {
   color : #548687;
+  font-size : 1.5rem;
 }
 
 .rate-container {
@@ -46,7 +48,6 @@
 }
 
 .rate-container .fa-star {
-  font-size: 1.5rem;
   cursor: pointer;
 }
 
