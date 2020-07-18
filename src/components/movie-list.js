@@ -9,8 +9,8 @@ function MovieList(props){
     props.movieClicked(movie)
   }
   
-  const editClicked = movie => {
-    props.editClicked(movie);
+  const editClicked = movie => evt => {
+    props.editClicked(movie)
   }
 
   return (
@@ -19,7 +19,7 @@ function MovieList(props){
         return (
           <div key={movie.id} className="movie-item">
             <h2 onClick={movieClicked(movie)}>{ movie.title }</h2>
-            <FontAwesomeIcon icon={faEdit} onClick={() => editClicked(movie)}/>
+            <FontAwesomeIcon icon={faEdit} onClick={editClicked(movie)}/>
             <FontAwesomeIcon icon={faTrash}/>
           </div>
         )

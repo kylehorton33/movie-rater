@@ -8,9 +8,9 @@ function MovieForm(props) {
   const [ description , setDescription ] = useState(props.movie.description);
 
   const updateClicked = () => {
-    console.log('update here')
+    //console.log('update here')
     API.updateMovie(props.movie.id, {title, description})
-    .then( resp => console.log(resp) )
+    .then( resp => props.updatedMovie(resp) )
     .catch( err => console.log(err) )
   }
 
@@ -26,7 +26,7 @@ function MovieForm(props) {
           <textarea id="description" type="text" placeholder="description" value={description}
               onChange={ evt => setDescription(evt.target.value)}
           ></textarea><br/>
-          <button onClick={ updateClicked }>Update</button>
+          <button onClick={updateClicked}>Update</button>
         </div>
       ) : null}
     </React.Fragment>
