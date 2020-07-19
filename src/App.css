@@ -49,6 +49,7 @@
 
 .rate-container .fa-star {
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .movie-item {
