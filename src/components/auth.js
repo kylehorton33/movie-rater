@@ -10,7 +10,7 @@ function Auth(){
   const [ token, setToken ] = useCookies(['movie-token']);
 
   useEffect( () => {
-    console.log(token);
+    //console.log(token);
     if(token['movie-token']) window.location.href = '/movies';
   }, [token])
 
