@@ -25,7 +25,7 @@ function App() {
        .then( resp => resp.json())
        .then( resp => setMovies(resp))
        .catch( err => console.log(err))
-  }, [] )
+  }, [token] )
 
   useEffect( () => {
     //console.log(token);
