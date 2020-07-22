@@ -27,10 +27,16 @@ function Auth(){
     .catch( err => console.log(err) )
   }
 
+  const isDisabled = username.length === 0 || password.length === 0;
+
   return (
-    <div>
-          { isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
-          <label htmlFor="username">username</label><br/>
+    <div className='App'>
+      <header className='App-header'>
+        { isLoginView ? <h1>Login</h1> : <h1>Register</h1>}
+      </header>
+      
+      <div className="Login-container">
+      <label htmlFor="username">username</label><br/>
           <input id="username" type="text" placeholder="username" value={ username } 
               onChange={ evt => {setUsername(evt.target.value);
                 console.log(evt.target.value);} }
@@ -41,13 +47,15 @@ function Auth(){
           ></input><br/>
           
           { isLoginView ? 
-              <button onClick={loginClicked}>Login</button> : 
-              <button onClick={registerClicked}>Register</button>
+              <button onClick={loginClicked} disabled={isDisabled}>Login</button> : 
+              <button onClick={registerClicked} disabled={isDisabled}>Register</button>
             }
           { isLoginView ? 
               <p onClick={() => setIsLoginView(false)}>Don't have an account? Register here!</p> : 
               <p onClick={() => setIsLoginView(true)}>Already have an account? Login here!</p>
             }
+      </div>
+          
           
           
               
