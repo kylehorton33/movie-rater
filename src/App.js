@@ -7,6 +7,7 @@ import { useCookies } from 'react-cookie';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
+import { useFetch } from './hooks/useFetch'
 
 function App() {
 
@@ -15,20 +16,11 @@ function App() {
   const [editedMovie, setEditedMovie] = useState(null);
 
   const [ token, setToken, deleteToken ] = useCookies(['movie-token']);
-  
+  const [data, loading, error] = useFetch();
 
   useEffect( () => {
-      fetch("http://127.0.0.1:8000/api/movies/", { 
-        method : 'GET',
-        headers : {
-          'Content-Type' : 'application/json',
-          'Authorization' : `Token ${token['movie-token']}`
-        }
-       })
-       .then( resp => resp.json())
-       .then( resp => setMovies(resp))
-       .catch( err => console.log(err))
-  }, [token] )
+    setMovies(data);
+  }, [data] )
 
   useEffect( () => {
     //console.log(token);
@@ -77,6 +69,9 @@ function App() {
   const logoutUser = ()  => {
     deleteToken(['movie-token']);
   }
+
+  if (loading) return <h1>Loading...</h1>
+  if (error) return <h1>ERROR</h1>
 
   return (
     <div className="App">
